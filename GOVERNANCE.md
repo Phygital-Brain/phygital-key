@@ -4,7 +4,7 @@ How decisions are made in phygital-key. Short on purpose.
 
 ## Who decides
 
-phygital-key is run by [Phygital-Key](https://github.com/Phygital-Key), the maintainer. The maintainer has the final say on what is merged, released and removed.
+phygital-key is run by [Phygital-Key](https://github.com/Phygital-Brain), the maintainer. The maintainer has the final say on what is merged, released and removed.
 
 ## How decisions are made
 

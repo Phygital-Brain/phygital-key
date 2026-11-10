@@ -26,18 +26,18 @@ The base (this repository) holds everything the products share. A product is a s
 
 ```mermaid
 flowchart TD
-    subgraph base["Base: Phygital-Key/phygital-key"]
+    subgraph base["Base: Phygital-Brain/phygital-key"]
         V["phygital-key-verify (verifier)"]
         G["phygital-key-gate (gate engine)"]
         T["assets/*.sh templates"]
         G --> V
         G --> T
     end
-    subgraph mcp["Product: Phygital-Key/phygital-key-mcp"]
+    subgraph mcp["Product: Phygital-Brain/phygital-key-mcp"]
         MP["Product: phygital-key-mcp, id mcp, port 7468"]
         MA["Adapter: MCP at /mcp, stdio"]
     end
-    subgraph a2a["Product: Phygital-Key/phygital-key-a2a"]
+    subgraph a2a["Product: Phygital-Brain/phygital-key-a2a"]
         AP["Product: phygital-key-a2a, id a2a, port 7478"]
         AA["Adapter: A2A at /a2a, agent card"]
     end
@@ -57,7 +57,7 @@ flowchart TD
 | `bin` | Program name. Also the release file prefix, the data folder `~/.<bin>`, the environment prefix and the admin helper `<bin>-admin` | `phygital-key-mcp` |
 | `id` | Short id (lowercase letters and digits) for the secure install's user, folders and service labels | `mcp` |
 | `version` | The product crate's version | `0.4.0` |
-| `repo` | GitHub repository with the product's signed releases | `Phygital-Key/phygital-key-mcp` |
+| `repo` | GitHub repository with the product's signed releases | `Phygital-Brain/phygital-key-mcp` |
 | `port` | Default port of the approval page | `7468` |
 | `about` | One line for `--help` | |
 | `release_keys` | The product's pinned release keys (P-256 `PUBLIC KEY` PEM blocks, and `ML-DSA-65 PUBLIC KEY` blocks once made), from its `release-keys.pem` | |
@@ -461,10 +461,10 @@ The product's `scripts/release-key.sh` is run once, by the repository owner, in 
 These steps run in each product's `release.yml`; the names below are those of Phygital Key MCP.
 
 1. Pushing a `v*` tag runs `release.yml`. Its build job runs the tests and a release build for 5 targets (Linux x86_64 and arm64, macOS Apple silicon and Intel, Windows x86_64), each packed as `.tar.gz` (`.zip` on Windows) with a `.sha256` file.
-2. Each build job publishes a build provenance attestation for its archive (`actions/attest-build-provenance`, signed through Sigstore): GitHub's record of which workflow built which file from which commit. Anyone can check it with `gh attestation verify <file> --repo Phygital-Key/phygital-key-mcp`.
+2. Each build job publishes a build provenance attestation for its archive (`actions/attest-build-provenance`, signed through Sigstore): GitHub's record of which workflow built which file from which commit. Anyone can check it with `gh attestation verify <file> --repo Phygital-Brain/phygital-key-mcp`.
 3. The `publish` job runs in the environment `release`, so it gets `RELEASE_SIGNING_KEY` only in a run from a `v*` tag. The environment has no required reviewer for now, so the job does not wait for an approval click. The owner can turn it back on under Settings, Environments, release, Required reviewers.
 4. The job computes the SHA-256 of every archive itself, writes `release.txt`, signs it with `openssl dgst -sha256 -sign`, checks the signature against the keys pinned in that commit, and publishes the release (not a draft) with every archive, its `.sha256`, `release.txt` and `release.txt.sig`.
-5. The `container` job (`needs: publish`) builds the image from the two Linux archives of the release for `linux/amd64` and `linux/arm64` (distroless `cc-debian12:nonroot` base pinned by digest, user `65532:65532`, `PHYGITAL_KEY_MCP_HOME=/data`, default command `--bind 0.0.0.0 serve`), pushes it to `ghcr.io/phygital-key/phygital-key-mcp` as `vX.Y.Z` and `latest`, and publishes a build provenance attestation for the image digest. The image is not in `release.txt`. A container updates only when its image is pulled again: the daily job and `update` do not run in it ([run it in a container](own-server.md#run-it-in-a-container)).
+5. The `container` job (`needs: publish`) builds the image from the two Linux archives of the release for `linux/amd64` and `linux/arm64` (distroless `cc-debian12:nonroot` base pinned by digest, user `65532:65532`, `PHYGITAL_KEY_MCP_HOME=/data`, default command `--bind 0.0.0.0 serve`), pushes it to `ghcr.io/phygital-brain/phygital-key-mcp` as `vX.Y.Z` and `latest`, and publishes a build provenance attestation for the image digest. The image is not in `release.txt`. A container updates only when its image is pulled again: the daily job and `update` do not run in it ([run it in a container](own-server.md#run-it-in-a-container)).
 
 ### The daily job
 

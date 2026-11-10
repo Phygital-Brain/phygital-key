@@ -46,7 +46,7 @@ The 32 bytes the person's key signs: SHA-256 of `phygital-key/approval/v1`, a ze
 
 ### Elicitation
 
-An MCP feature that lets a server ask the client to show something to the person. Phygital Key MCP uses URL-mode elicitation to offer the approval page link; "accept" there only means the page was opened, never a yes. See [connect your AI](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
+An MCP feature that lets a server ask the client to show something to the person. Phygital Key MCP uses URL-mode elicitation to offer the approval page link; "accept" there only means the page was opened, never a yes. See [connect your AI](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
 
 ### ES256
 
@@ -86,7 +86,7 @@ How strongly the person proved it was them: `medium` (a touch, user presence) or
 
 ### MCP
 
-The Model Context Protocol, the standard way AI apps call tools. Phygital Key MCP is an MCP server with six tools, none of which can approve. See [tools](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/tools.md).
+The Model Context Protocol, the standard way AI apps call tools. Phygital Key MCP is an MCP server with six tools, none of which can approve. See [tools](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/tools.md).
 
 ### NFC
 
@@ -146,7 +146,7 @@ A one-time `high` approval of limits rather than one action: the same type of ac
 
 ### stdio
 
-Standard input and output: the MCP transport most AI apps use when they start the gate themselves (`phygital-key-mcp stdio`). Only the app that started the gate can talk to it, so no access token is needed. See [connect your AI](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
+Standard input and output: the MCP transport most AI apps use when they start the gate themselves (`phygital-key-mcp stdio`). Only the app that started the gate can talk to it, so no access token is needed. See [connect your AI](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
 
 ### Streamable HTTP
 

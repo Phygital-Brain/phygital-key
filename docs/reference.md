@@ -27,7 +27,7 @@ Every name comes from the product's program name (`bin`) and short id (`id`) in 
 
 | | Phygital Key MCP | Phygital Key A2A |
 |---|---|---|
-| Repository | [Phygital-Key/phygital-key-mcp](https://github.com/Phygital-Key/phygital-key-mcp) | [Phygital-Key/phygital-key-a2a](https://github.com/Phygital-Key/phygital-key-a2a) (new) |
+| Repository | [Phygital-Brain/phygital-key-mcp](https://github.com/Phygital-Brain/phygital-key-mcp) | [Phygital-Brain/phygital-key-a2a](https://github.com/Phygital-Brain/phygital-key-a2a) (new) |
 | Program | `phygital-key-mcp` | `phygital-key-a2a` |
 | Version | 0.6.0 | 0.3.0 |
 | Default port | `7468` (demo service `7469`) | `7478` (demo service `7479`) |
@@ -41,7 +41,7 @@ Every name comes from the product's program name (`bin`) and short id (`id`) in 
 | Logs (macOS) | `/Library/Logs/PhygitalKey/mcp`, `/Library/Logs/PhygitalKey/mcp-update` | `/Library/Logs/PhygitalKey/a2a`, `/Library/Logs/PhygitalKey/a2a-update` |
 | launchd labels | `io.phygitalkey.mcp.gate`, `io.phygitalkey.mcp.update` | `io.phygitalkey.a2a.gate`, `io.phygitalkey.a2a.update` |
 | systemd units | `phygital-key-mcp.service`, `phygital-key-mcp-update.service`, `phygital-key-mcp-update.timer` | `phygital-key-a2a.service`, `phygital-key-a2a-update.service`, `phygital-key-a2a-update.timer` |
-| Container image | `ghcr.io/phygital-key/phygital-key-mcp` | `ghcr.io/phygital-key/phygital-key-a2a` |
+| Container image | `ghcr.io/phygital-brain/phygital-key-mcp` | `ghcr.io/phygital-brain/phygital-key-a2a` |
 | Release archives | `phygital-key-mcp-vX.Y.Z-<target>.tar.gz` / `.zip` | `phygital-key-a2a-vX.Y.Z-<target>.tar.gz` / `.zip` |
 
 ## Commands
@@ -136,8 +136,8 @@ What an agent can do depends on the product's protocol. In every product it can 
 
 | Product | Endpoint | Reference |
 |---|---|---|
-| Phygital Key MCP | stdio (`phygital-key-mcp stdio`) or Streamable HTTP at `/mcp`. Server name `phygital-key-mcp`, title `Phygital Key MCP`. Six tools: `request_approval`, `get_approval`, `cancel_approval`, `record_receipt`, `request_standing_approval`, `use_standing_approval` | [MCP tools reference](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/tools.md) |
-| Phygital Key A2A | A2A 1.0 JSON-RPC at `/a2a`; agent card at `/.well-known/agent-card.json` (readable without the token) | [its repository](https://github.com/Phygital-Key/phygital-key-a2a) (new; its docs come later) |
+| Phygital Key MCP | stdio (`phygital-key-mcp stdio`) or Streamable HTTP at `/mcp`. Server name `phygital-key-mcp`, title `Phygital Key MCP`. Six tools: `request_approval`, `get_approval`, `cancel_approval`, `record_receipt`, `request_standing_approval`, `use_standing_approval` | [MCP tools reference](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/tools.md) |
+| Phygital Key A2A | A2A 1.0 JSON-RPC at `/a2a`; agent card at `/.well-known/agent-card.json` (readable without the token) | [its repository](https://github.com/Phygital-Brain/phygital-key-a2a) (new; its docs come later) |
 
 Reserved in every product: the request types `standing` and `revoke`, and the audience `phygital-key:keyring:<origin>` (key changes). The gate makes these itself and refuses an agent that asks for them.
 
@@ -220,13 +220,13 @@ For Phygital Key MCP. Each product publishes the same set from its own repositor
 
 | Method | Command | Runs as | Updates |
 |---|---|---|---|
-| Secure install (macOS, Linux) | `curl -q -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/v0.6.0/install-service.sh \| sudo bash` | Its own system user | Daily, signed releases only (`--no-auto-update` turns it off) |
-| Install script (macOS, Linux) | `curl -fsSL https://github.com/Phygital-Key/phygital-key-mcp/releases/latest/download/install.sh \| sh` | You | `phygital-key-mcp update` |
-| Homebrew (macOS, Linux) | `brew install phygital-key/tap/phygital-key-mcp` | You | `brew upgrade phygital-key-mcp` |
-| Scoop (Windows) | `scoop bucket add phygital-key-mcp https://github.com/Phygital-Key/phygital-key-mcp` then `scoop install phygital-key-mcp` | You | `scoop update phygital-key-mcp` |
-| cargo | `cargo install --locked --git https://github.com/Phygital-Key/phygital-key-mcp phygital-key-mcp` | You | `phygital-key-mcp update`, or build again |
-| Container (Linux servers) | `docker run -d --name phygital-key-mcp -p 127.0.0.1:7468:7468 -v phygital-key-mcp:/data ghcr.io/phygital-key/phygital-key-mcp:latest` | uid 65532 inside the container | Pull a new image, start a new container on the same volume |
-| By hand | Download from [Releases](https://github.com/Phygital-Key/phygital-key-mcp/releases), [check it](updates.md#check-a-download-yourself) | You | Download again |
+| Secure install (macOS, Linux) | `curl -q -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/v0.6.0/install-service.sh \| sudo bash` | Its own system user | Daily, signed releases only (`--no-auto-update` turns it off) |
+| Install script (macOS, Linux) | `curl -fsSL https://github.com/Phygital-Brain/phygital-key-mcp/releases/latest/download/install.sh \| sh` | You | `phygital-key-mcp update` |
+| Homebrew (macOS, Linux) | `brew install phygital-brain/tap/phygital-key-mcp` | You | `brew upgrade phygital-key-mcp` |
+| Scoop (Windows) | `scoop bucket add phygital-key-mcp https://github.com/Phygital-Brain/phygital-key-mcp` then `scoop install phygital-key-mcp` | You | `scoop update phygital-key-mcp` |
+| cargo | `cargo install --locked --git https://github.com/Phygital-Brain/phygital-key-mcp phygital-key-mcp` | You | `phygital-key-mcp update`, or build again |
+| Container (Linux servers) | `docker run -d --name phygital-key-mcp -p 127.0.0.1:7468:7468 -v phygital-key-mcp:/data ghcr.io/phygital-brain/phygital-key-mcp:latest` | uid 65532 inside the container | Pull a new image, start a new container on the same volume |
+| By hand | Download from [Releases](https://github.com/Phygital-Brain/phygital-key-mcp/releases), [check it](updates.md#check-a-download-yourself) | You | Download again |
 
 Each method in detail: [updates](updates.md#update-by-install-method).
 
@@ -236,7 +236,7 @@ Setup with a TLS proxy, enrollment and updates: [run it in a container](own-serv
 
 | Fact | Phygital Key MCP |
 |---|---|
-| Image | `ghcr.io/phygital-key/phygital-key-mcp` (Phygital Key A2A: `ghcr.io/phygital-key/phygital-key-a2a`) |
+| Image | `ghcr.io/phygital-brain/phygital-key-mcp` (Phygital Key A2A: `ghcr.io/phygital-brain/phygital-key-a2a`) |
 | Tags | `vX.Y.Z` (one release) and `latest` |
 | Platforms | `linux/amd64`, `linux/arm64` |
 | Base | `gcr.io/distroless/cc-debian12:nonroot`, pinned by digest in the product's `packaging/container/Dockerfile` |
@@ -246,7 +246,7 @@ Setup with a TLS proxy, enrollment and updates: [run it in a container](own-serv
 | Data folder | `/data`, a volume; `PHYGITAL_KEY_MCP_HOME=/data` |
 | Port | `7468` (publish it as `-p 127.0.0.1:7468:7468`) |
 | Built by | The `container` job of the product's `.github/workflows/release.yml`, after the `publish` job signs the release, from the same Linux binaries whose archives are listed in the signed `release.txt` |
-| Provenance | A build provenance attestation pushed with the image: `gh attestation verify oci://ghcr.io/phygital-key/phygital-key-mcp:v0.4.0 --repo Phygital-Key/phygital-key-mcp` |
+| Provenance | A build provenance attestation pushed with the image: `gh attestation verify oci://ghcr.io/phygital-brain/phygital-key-mcp:v0.4.0 --repo Phygital-Brain/phygital-key-mcp` |
 | Not inside | Automatic updates and `update` |
 
 Commands in a running container go through `docker exec`, for example `docker exec -it phygital-key-mcp phygital-key-mcp enroll` and `docker exec -it phygital-key-mcp phygital-key-mcp token`. On a desktop where your user can run `docker`, an agent acting as you can control the container, so it does not give the [secure install](secure-install.md)'s guarantee.

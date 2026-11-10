@@ -89,10 +89,10 @@ The update job runs as root, because it must replace the root-owned program, wri
 Open a **fresh terminal** that no AI agent controls, and run the product's installer, pinned to a release tag. For Phygital Key MCP:
 
 ```bash
-curl -q -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash
+curl -q -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash
 ```
 
-The URL is pinned to the `v0.4.0` tag, so you get the install script of that release, and it installs that release. Phygital Key A2A has its own `install-service.sh` at the root of [its repository](https://github.com/Phygital-Key/phygital-key-a2a). You do not need the program installed first. It needs `curl` and `openssl` (to check the release signature).
+The URL is pinned to the `v0.4.0` tag, so you get the install script of that release, and it installs that release. Phygital Key A2A has its own `install-service.sh` at the root of [its repository](https://github.com/Phygital-Brain/phygital-key-a2a). You do not need the program installed first. It needs `curl` and `openssl` (to check the release signature).
 
 When it finishes it prints (Phygital Key MCP on macOS shown; the update time is random):
 
@@ -117,7 +117,7 @@ Remove:        sudo /Library/PhygitalKey/mcp/bin/phygital-key-mcp install-servic
 Then:
 
 1. `phygital-key-mcp-admin enroll` and open the link to [add your key](keys-and-devices.md#your-first-key).
-2. `phygital-key-mcp-admin token` and paste the `claude mcp add ...` line, or the URL and header, into your AI app ([connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md#http-the-app-connects-to-a-url)).
+2. `phygital-key-mcp-admin token` and paste the `claude mcp add ...` line, or the URL and header, into your AI app ([connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md#http-the-app-connects-to-a-url)).
 3. `phygital-key-mcp-admin status`.
 
 If you already used the quick install, remove the stdio entry (`phygital-key-mcp stdio`) from your AI app, so the app connects to the service and does not start a second gate of its own. Your old keyring in `~/.phygital-key-mcp` is not moved: enroll again for the service.
@@ -146,7 +146,7 @@ If you already used the quick install, remove the stdio entry (`phygital-key-mcp
 With the `curl` command, pass options after `-s --`:
 
 ```bash
-curl -q -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash -s -- --no-auto-update
+curl -q -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash -s -- --no-auto-update
 ```
 
 The script itself takes only `--uninstall`, `--purge`, `--auto-update` and `--no-auto-update`, plus the hidden `--auto-update-run` and `--now` of the update job (anything else prints `unknown option: <option>`); the program passes `--release`, `--binary` and `--port` to it. Of the program's general options, only `--port` reaches the service: it always uses the data folder above and serves `http://localhost:<port>`, so `--home`, `--origin`, `--bind`, `--lifetime` and `--no-token` have no effect on it.
@@ -240,7 +240,7 @@ sudo /Library/PhygitalKey/mcp/bin/phygital-key-mcp install-service --release v0.
 sudo /usr/lib/phygital-key-mcp/bin/phygital-key-mcp install-service --release v0.4.0     # Linux
 ```
 
-(`v0.4.0` is an example: use a version listed on the product's [Releases](https://github.com/Phygital-Key/phygital-key-mcp/releases) page.) It checks the signed list for that version, the archive's SHA-256, swaps the program in one step, and restarts the service with every check above. Without `--release` it reinstalls its own version.
+(`v0.4.0` is an example: use a version listed on the product's [Releases](https://github.com/Phygital-Brain/phygital-key-mcp/releases) page.) It checks the signed list for that version, the archive's SHA-256, swaps the program in one step, and restarts the service with every check above. Without `--release` it reinstalls its own version.
 
 **Going back.** The previous program is kept only while an install runs, to switch back when the new gate fails. To go back to an older version later, install it with `--release`, and turn automatic updates off with `--no-auto-update` if it should stay there (otherwise the next daily run moves it up again).
 
@@ -361,7 +361,7 @@ More in [troubleshooting](troubleshooting.md#secure-install).
 
 ## Next
 
-- [Connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md) (Phygital Key MCP)
+- [Connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md) (Phygital Key MCP)
 - [Updates](updates.md)
 - [Threat model](threat-model.md)
 - [Privacy](privacy.md)

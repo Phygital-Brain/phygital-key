@@ -150,7 +150,7 @@ What the daily job does, in order (from the template `crates/phygital-key-gate/a
 
 Limits of the update channel, plainly:
 
-- **A freeze shows only when the list expires.** A v2 list is trusted for up to 180 days after it was signed, so a held-back update can stay hidden that long. `phygital-key-mcp-admin status` shows the latest signed release it found; compare it with the [Releases](https://github.com/Phygital-Key/phygital-key-mcp/releases) page. Installs from before v2 lists read `release.txt`, which has no expiry, until they update once.
+- **A freeze shows only when the list expires.** A v2 list is trusted for up to 180 days after it was signed, so a held-back update can stay hidden that long. `phygital-key-mcp-admin status` shows the latest signed release it found; compare it with the [Releases](https://github.com/Phygital-Brain/phygital-key-mcp/releases) page. Installs from before v2 lists read `release.txt`, which has no expiry, until they update once.
 - **The first install checks one signature.** It has no trusted program yet, so it checks the P-256 signature only; the ML-DSA one is checked from the next update on. The key fingerprints are also on [Codeberg](https://codeberg.org/Phygital-Key/phygital-key-release-keys), off GitHub, to compare before a first install.
 - **The first install trusts what it downloads.** The pinned keys arrive inside the install script. Machines already installed keep the keys they have.
 - **What the workflow builds.** A poisoned action the workflow uses could change a file before it is signed. The actions in the workflow are pinned by commit SHA to make that harder.
@@ -165,10 +165,10 @@ Limits of the update channel, plainly:
 
 ### The container image
 
-Each product release also publishes a container image, for Phygital Key MCP `ghcr.io/phygital-key/phygital-key-mcp` (tags `vX.Y.Z` and `latest`, `linux/amd64` and `linux/arm64`). The product's release workflow's `container` job runs only after the `publish` job succeeds. It unpacks the two Linux archives of that release, the same files whose SHA-256 the signed `release.txt` lists, copies the program into a `gcr.io/distroless/cc-debian12:nonroot` base pinned by digest, and pushes the image with a build provenance attestation. Check where an image came from:
+Each product release also publishes a container image, for Phygital Key MCP `ghcr.io/phygital-brain/phygital-key-mcp` (tags `vX.Y.Z` and `latest`, `linux/amd64` and `linux/arm64`). The product's release workflow's `container` job runs only after the `publish` job succeeds. It unpacks the two Linux archives of that release, the same files whose SHA-256 the signed `release.txt` lists, copies the program into a `gcr.io/distroless/cc-debian12:nonroot` base pinned by digest, and pushes the image with a build provenance attestation. Check where an image came from:
 
 ```bash
-gh attestation verify oci://ghcr.io/phygital-key/phygital-key-mcp:v0.4.0 --repo Phygital-Key/phygital-key-mcp
+gh attestation verify oci://ghcr.io/phygital-brain/phygital-key-mcp:v0.4.0 --repo Phygital-Brain/phygital-key-mcp
 ```
 
 What that does and does not cover:
@@ -179,7 +179,7 @@ What that does and does not cover:
 
 ## Attackers, defences and the tests that prove them
 
-Names in the last column are real: vectors from `test-vectors/` (shared by both verifiers), end-to-end checks ("e2e", in quotes) from Phygital Key MCP's [`tests/e2e/run.mjs`](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/tests/e2e/run.mjs), checks from each product's `tests/secure-install.sh`, and Rust or JavaScript test functions. See [testing](testing.md) for how to run them.
+Names in the last column are real: vectors from `test-vectors/` (shared by both verifiers), end-to-end checks ("e2e", in quotes) from Phygital Key MCP's [`tests/e2e/run.mjs`](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/tests/e2e/run.mjs), checks from each product's `tests/secure-install.sh`, and Rust or JavaScript test functions. See [testing](testing.md) for how to run them.
 
 | Attacker | Attack | Defence | Proved by |
 |---|---|---|---|

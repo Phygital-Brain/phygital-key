@@ -6,7 +6,7 @@ How a Phygital Key product gets new versions for each way of installing it: the 
 
 ## How often
 
-There is no fixed release schedule. Each product releases on its own, on its Releases page ([Phygital Key MCP](https://github.com/Phygital-Key/phygital-key-mcp/releases), [Phygital Key A2A](https://github.com/Phygital-Key/phygital-key-a2a/releases)). The base (this repository) makes no releases: a base change reaches a product's `main` through its daily `sync-base` job, and you with that product's next release. What changed in the base is in [CHANGELOG.md](../CHANGELOG.md). While the project is at 0.x, only the latest release gets fixes ([SECURITY.md](../SECURITY.md)).
+There is no fixed release schedule. Each product releases on its own, on its Releases page ([Phygital Key MCP](https://github.com/Phygital-Brain/phygital-key-mcp/releases), [Phygital Key A2A](https://github.com/Phygital-Brain/phygital-key-a2a/releases)). The base (this repository) makes no releases: a base change reaches a product's `main` through its daily `sync-base` job, and you with that product's next release. What changed in the base is in [CHANGELOG.md](../CHANGELOG.md). While the project is at 0.x, only the latest release gets fixes ([SECURITY.md](../SECURITY.md)).
 
 See what you have:
 
@@ -24,10 +24,10 @@ phygital-key-mcp 0.4.0
 |---|---|---|
 | The [secure install](secure-install.md) | By itself, once a day, signed releases only ([below](#automatic-updates-secure-install)) | `phygital-key-mcp-admin update` |
 | The install script (`install.sh`) | When you run the command | `phygital-key-mcp update` (or `phygital-key-mcp update --check` to only look) |
-| cargo | When you run the command | `phygital-key-mcp update`, or build again: `cargo install --locked --force --git https://github.com/Phygital-Key/phygital-key-mcp phygital-key-mcp` |
+| cargo | When you run the command | `phygital-key-mcp update`, or build again: `cargo install --locked --force --git https://github.com/Phygital-Brain/phygital-key-mcp phygital-key-mcp` |
 | Homebrew | With Homebrew | `brew update` then `brew upgrade phygital-key-mcp` |
 | Scoop (Windows) | With Scoop | `scoop update` then `scoop update phygital-key-mcp` |
-| Container (`ghcr.io/phygital-key/phygital-key-mcp`) | When you pull a new image | `docker pull ghcr.io/phygital-key/phygital-key-mcp:latest`, then start a new container on the same volume ([how](own-server.md#run-it-in-a-container)) |
+| Container (`ghcr.io/phygital-brain/phygital-key-mcp`) | When you pull a new image | `docker pull ghcr.io/phygital-brain/phygital-key-mcp:latest`, then start a new container on the same volume ([how](own-server.md#run-it-in-a-container)) |
 | By hand | When you download it | Download the new archive, [check it](#check-a-download-yourself), replace the program file |
 
 Each install is updated on its own. Updating your own `phygital-key-mcp` (Homebrew, the script, cargo) does not update the secure install, which runs its own locked copy, and the other way round. Each product updates only from its own repository and with its own keys.
@@ -45,14 +45,14 @@ Versions up to 0.3.0 were one program, `phygital-key`, released from this reposi
 | `<home>/mcp-token` | `<home>/access-token` |
 | `PHYGITAL_KEY_HOME`, `_PORT`, `_BIND`, `_ORIGIN` | `PHYGITAL_KEY_MCP_HOME`, `_PORT`, `_BIND`, `_ORIGIN` |
 | `phygital-key-admin` | `phygital-key-mcp-admin` |
-| `ghcr.io/phygital-key/phygital-key` | `ghcr.io/phygital-key/phygital-key-mcp` |
-| `brew install phygital-key/tap/phygital-key` | `brew install phygital-key/tap/phygital-key-mcp` |
+| `ghcr.io/phygital-brain/phygital-key` | `ghcr.io/phygital-brain/phygital-key-mcp` |
+| `brew install phygital-brain/tap/phygital-key` | `brew install phygital-brain/tap/phygital-key-mcp` |
 
 To move:
 
 1. **Secure install:** remove the 0.3 service first, then install the product ([from a 0.3 secure install](secure-install.md#from-a-03-secure-install)), and enroll your key again.
 2. **Your own folders:** install the product ([getting started](getting-started.md)). The new program reads `~/.phygital-key-mcp`, not `~/.phygital-key`, so enroll your key again, or move the old folder to the new name before the first start. Either way the old `mcp-token` file is not read: the first `serve`, `demo` or `token` makes a new `access-token`, so paste the new line into your AI app.
-3. **AI app settings:** change the command to `phygital-key-mcp` with the argument `stdio` ([connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md)).
+3. **AI app settings:** change the command to `phygital-key-mcp` with the argument `stdio` ([connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md)).
 4. **Services:** keep checking approvals as before. The approval format (`pka.1`) did not change. If a service reads a keyring from your gate, give it the keyring of the new gate once you have enrolled there.
 
 ## Automatic updates (secure install)
@@ -95,7 +95,7 @@ flowchart TD
 
 In words:
 
-1. It downloads `release.txt` and `release.txt.sig` from `https://github.com/<product repo>/releases/latest/download/` (for Phygital Key MCP, `Phygital-Key/phygital-key-mcp`) over https (TLS 1.2 or newer). Every `curl` starts with `-q`, so it never reads a `.curlrc` file.
+1. It downloads `release.txt` and `release.txt.sig` from `https://github.com/<product repo>/releases/latest/download/` (for Phygital Key MCP, `Phygital-Brain/phygital-key-mcp`) over https (TLS 1.2 or newer). Every `curl` starts with `-q`, so it never reads a `.curlrc` file.
 2. It checks the signature against the release keys pinned in the installed program's own installer script ([the signed release list](#the-signed-release-list)). Any doubt is a refusal.
 3. It compares the signed version with the installed one, number by number (`v0.10.0` is newer than `v0.9.9`). Only a strictly newer version goes on. An automatic update never installs an older version.
 4. If any standing approval is active, it waits ([waiting while you are busy](#waiting-while-you-are-busy)).
@@ -158,7 +158,7 @@ sudo /Library/PhygitalKey/mcp/bin/phygital-key-mcp install-service --release v0.
 sudo /usr/lib/phygital-key-mcp/bin/phygital-key-mcp install-service --release v0.4.0     # Linux
 ```
 
-(`v0.4.0` is an example: use a version from the product's [Releases](https://github.com/Phygital-Key/phygital-key-mcp/releases) page.) The same signed-list check applies. With automatic updates on, the next daily run moves an older version up to the latest signed release again.
+(`v0.4.0` is an example: use a version from the product's [Releases](https://github.com/Phygital-Brain/phygital-key-mcp/releases) page.) The same signed-list check applies. With automatic updates on, the next daily run moves an older version up to the latest signed release again.
 
 ### Turn automatic updates off or on
 
@@ -170,7 +170,7 @@ sudo /Library/PhygitalKey/mcp/bin/phygital-key-mcp install-service --auto-update
 (On Linux: `/usr/lib/phygital-key-mcp/bin/phygital-key-mcp`.) To install with updates off from the start:
 
 ```bash
-curl -q -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash -s -- --no-auto-update
+curl -q -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash -s -- --no-auto-update
 ```
 
 The choice is saved as `on` or `off` in `<prefix>/auto-update` and kept on later installs until you pass the other option. `--no-auto-update` removes the job; `phygital-key-mcp-admin update` still works when you want it. Both options run the whole install again for the installed version, so the gate restarts.
@@ -221,7 +221,7 @@ The install script itself also checks the signed release list (it needs `openssl
 
 Each product has its own package names. For Phygital Key MCP:
 
-- **Homebrew:** `brew update`, then `brew upgrade phygital-key-mcp`. Homebrew checks the archive against the SHA-256 in the formula of the tap `Phygital-Key/homebrew-tap`.
+- **Homebrew:** `brew update`, then `brew upgrade phygital-key-mcp`. Homebrew checks the archive against the SHA-256 in the formula of the tap `Phygital-Brain/homebrew-tap`.
 - **Scoop:** `scoop update`, then `scoop update phygital-key-mcp`. Scoop installs the version and SHA-256 listed in the bucket file of the product's repository (`bucket/phygital-key-mcp.json`), which is updated separately from each release.
 - **winget:** the product's `scripts/package-manifests.sh` writes winget manifests, but they are not submitted to Microsoft, so `winget upgrade` does not find Phygital Key yet.
 
@@ -322,7 +322,7 @@ Each archive holds one folder with the program, `README.md`, `LICENSE` and `NOTI
 **Check the signed list (who published it).** Download `release.txt` and `release.txt.sig` from the release, take the pinned public keys from the product's `release-keys.pem` at the same tag, and check the signature:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/v0.4.0/release-keys.pem \
+curl -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/v0.4.0/release-keys.pem \
   | awk '/-----BEGIN PUBLIC KEY-----/{n++; f="release-key-" n ".pem"} f{print > f} /-----END PUBLIC KEY-----/{close(f); f=""}'
 openssl dgst -sha256 -verify release-key-1.pem -signature release.txt.sig release.txt
 ```
@@ -332,7 +332,7 @@ It prints `Verified OK` for a key that signed the list (try `release-key-2.pem` 
 **Check the pinned key itself.** The fingerprints of every product's release keys are also published off GitHub, on Codeberg: [Phygital-Key/phygital-key-release-keys](https://codeberg.org/Phygital-Key/phygital-key-release-keys). Compare before a first install:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/main/release-keys.pem \
+curl -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/main/release-keys.pem \
   | awk '/BEGIN PUBLIC KEY/,/END PUBLIC KEY/' | openssl pkey -pubin -outform DER | shasum -a 256
 ```
 
@@ -363,7 +363,7 @@ A matching `.sha256` shows only that the file is the one published next to it on
 **Check the build record (who built it).** With the GitHub CLI (`gh`), check that the product's release workflow built the archive, and from which commit:
 
 ```bash
-gh attestation verify phygital-key-mcp-v0.4.0-aarch64-apple-darwin.tar.gz --repo Phygital-Key/phygital-key-mcp
+gh attestation verify phygital-key-mcp-v0.4.0-aarch64-apple-darwin.tar.gz --repo Phygital-Brain/phygital-key-mcp
 ```
 
 ## Limits

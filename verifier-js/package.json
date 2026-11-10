@@ -16,7 +16,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Phygital-Key/phygital-key.git",
+    "url": "git+https://github.com/Phygital-Brain/phygital-key.git",
     "directory": "verifier-js"
   },
   "keywords": [

@@ -7,21 +7,21 @@
 <h3 align="center">Pick your product</h3>
 
 <p align="center">
-<a href="https://github.com/Phygital-Key/phygital-key-mcp"><img src="https://img.shields.io/badge/Phygital%20Key%20MCP-for%20AI%20apps%20(Claude,%20Cursor,%20any%20MCP%20app)-26D0F2?style=for-the-badge" alt="Phygital Key MCP: for AI apps that speak MCP"></a>
+<a href="https://github.com/Phygital-Brain/phygital-key-mcp"><img src="https://img.shields.io/badge/Phygital%20Key%20MCP-for%20AI%20apps%20(Claude,%20Cursor,%20any%20MCP%20app)-26D0F2?style=for-the-badge" alt="Phygital Key MCP: for AI apps that speak MCP"></a>
 <br>
-<a href="https://github.com/Phygital-Key/phygital-key-a2a"><img src="https://img.shields.io/badge/Phygital%20Key%20A2A-for%20agents%20that%20speak%20A2A-FF6B5A?style=for-the-badge" alt="Phygital Key A2A: for agents that speak A2A"></a>
+<a href="https://github.com/Phygital-Brain/phygital-key-a2a"><img src="https://img.shields.io/badge/Phygital%20Key%20A2A-for%20agents%20that%20speak%20A2A-FF6B5A?style=for-the-badge" alt="Phygital Key A2A: for agents that speak A2A"></a>
 </p>
 
-<p align="center"><a href="https://github.com/Phygital-Key/phygital-key-mcp"><b>Phygital Key MCP</b></a>: AI apps ask through MCP. &nbsp;·&nbsp; <a href="https://github.com/Phygital-Key/phygital-key-a2a"><b>Phygital Key A2A</b></a>: other agents ask through A2A.<br>This repository is the shared base both are built on.</p>
+<p align="center"><a href="https://github.com/Phygital-Brain/phygital-key-mcp"><b>Phygital Key MCP</b></a>: AI apps ask through MCP. &nbsp;·&nbsp; <a href="https://github.com/Phygital-Brain/phygital-key-a2a"><b>Phygital Key A2A</b></a>: other agents ask through A2A.<br>This repository is the shared base both are built on.</p>
 
 <p align="center">
 <a href="#open-source-and-credit"><img src="https://img.shields.io/badge/-open%20source-26D0F2" alt="Open source"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="License: Apache-2.0"></a>
-<a href="https://github.com/Phygital-Key/phygital-key/actions/workflows/ci.yml"><img src="https://github.com/Phygital-Key/phygital-key/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+<a href="https://github.com/Phygital-Brain/phygital-key/actions/workflows/ci.yml"><img src="https://github.com/Phygital-Brain/phygital-key/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
 <a href="Cargo.toml"><img src="https://img.shields.io/badge/rust-1.89%2B-orange" alt="Rust 1.89+"></a>
-<a href="https://github.com/Phygital-Key/phygital-key/stargazers"><img src="https://img.shields.io/github/stars/Phygital-Key/phygital-key?style=flat" alt="GitHub stars"></a>
-<a href="https://github.com/Phygital-Key/phygital-key/commits/main"><img src="https://img.shields.io/github/last-commit/Phygital-Key/phygital-key" alt="Last commit"></a>
-<a href="https://scorecard.dev/viewer/?uri=github.com/Phygital-Key/phygital-key"><img src="https://api.scorecard.dev/projects/github.com/Phygital-Key/phygital-key/badge" alt="OpenSSF Scorecard"></a>
+<a href="https://github.com/Phygital-Brain/phygital-key/stargazers"><img src="https://img.shields.io/github/stars/Phygital-Brain/phygital-key?style=flat" alt="GitHub stars"></a>
+<a href="https://github.com/Phygital-Brain/phygital-key/commits/main"><img src="https://img.shields.io/github/last-commit/Phygital-Brain/phygital-key" alt="Last commit"></a>
+<a href="https://scorecard.dev/viewer/?uri=github.com/Phygital-Brain/phygital-key"><img src="https://api.scorecard.dev/projects/github.com/Phygital-Brain/phygital-key/badge" alt="OpenSSF Scorecard"></a>
 </p>
 
 <p align="center">
@@ -72,8 +72,8 @@ You install a product. Every product is the same gate (approval page, keys, stan
 
 | Product | For | Repository |
 |---|---|---|
-| **Phygital Key MCP** | AI apps that use MCP (Claude Code, Claude Desktop and other MCP apps), over stdio or HTTP at `/mcp`. Program `phygital-key-mcp`, version 0.6.0. | [Phygital-Key/phygital-key-mcp](https://github.com/Phygital-Key/phygital-key-mcp) |
-| **Phygital Key A2A** | Agents that use A2A 1.0 (JSON-RPC at `/a2a`, agent card at `/.well-known/agent-card.json`). Program `phygital-key-a2a`, version 0.3.0. | [Phygital-Key/phygital-key-a2a](https://github.com/Phygital-Key/phygital-key-a2a) |
+| **Phygital Key MCP** | AI apps that use MCP (Claude Code, Claude Desktop and other MCP apps), over stdio or HTTP at `/mcp`. Program `phygital-key-mcp`, version 0.6.0. | [Phygital-Brain/phygital-key-mcp](https://github.com/Phygital-Brain/phygital-key-mcp) |
+| **Phygital Key A2A** | Agents that use A2A 1.0 (JSON-RPC at `/a2a`, agent card at `/.well-known/agent-card.json`). Program `phygital-key-a2a`, version 0.3.0. | [Phygital-Brain/phygital-key-a2a](https://github.com/Phygital-Brain/phygital-key-a2a) |
 
 This repository is the base both products are built on. It doesn't publish programs or releases itself: each product signs and publishes its own.
 
@@ -140,7 +140,7 @@ More: [how it works](docs/how-it-works.md), [architecture](docs/architecture.md)
 With Phygital Key MCP (every way to install it: [getting started](docs/getting-started.md)):
 
 ```bash
-brew install phygital-key/tap/phygital-key-mcp
+brew install phygital-brain/tap/phygital-key-mcp
 phygital-key-mcp demo
 ```
 
@@ -155,9 +155,9 @@ claude mcp add --transport http phygital-key-mcp http://localhost:7468/mcp --hea
 
 Then ask your AI app: *"Deploy api 2.4.1 to production through the demo service at http://localhost:7469."* An approval page opens. Approve, and the demo service "deploys" (nothing real happens). Deny, and it refuses.
 
-Connecting other AI apps: [connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
+Connecting other AI apps: [connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
 
-With Phygital Key A2A, `phygital-key-a2a demo` starts the same gate on port 7478, for agents that use A2A: [getting started with A2A](https://github.com/Phygital-Key/phygital-key-a2a/blob/main/docs/getting-started.md).
+With Phygital Key A2A, `phygital-key-a2a demo` starts the same gate on port 7478, for agents that use A2A: [getting started with A2A](https://github.com/Phygital-Brain/phygital-key-a2a/blob/main/docs/getting-started.md).
 
 ## What you see
 
@@ -271,7 +271,7 @@ phygital-key-mcp keys --check <fingerprint> --file new.json --signed-on https://
 An AI agent on your computer runs as you, so it could change files you own. The secure install puts the gate where the AI can't reach it (macOS and Linux). Each product has its own installer. For Phygital Key MCP, open a new terminal and run:
 
 ```bash
-curl -q -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash
+curl -q -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash
 ```
 
 It downloads the official release itself and checks it against the signed release list. It installs it into folders only the administrator can change, and runs it as its own user (`_phygitalkeymcp` on macOS, `phygitalkey-mcp` on Linux). If any other program is already using the gate's port, it refuses to run. On Linux, systemd holds that port while the gate restarts for an update, so no other program can grab it in between. Then:
@@ -375,8 +375,8 @@ The shared guides are here. Guides for one product (connecting AI apps, its tool
 | **Security** | [Threat model](docs/threat-model.md) · [Security reviews](docs/security-reviews.md) · [Testing](docs/testing.md) · [Report a problem](SECURITY.md) |
 | **Internals** | [Spec (`pka.1`)](docs/spec.md) · [Architecture](docs/architecture.md) · [Canonical form](docs/canonical-form.md) · [WebAuthn](docs/webauthn.md) · [Approval page](docs/approval-page.md) · [Test vectors](test-vectors/README.md) · [Decisions](docs/decisions.md) · [AGENTS.md](AGENTS.md) |
 | **Background** | [AP2 mapping](docs/ap2.md) · [Research](docs/research.md) · [Roadmap](docs/roadmap.md) · [Changelog](CHANGELOG.md) |
-| **Phygital Key MCP** | [Repository](https://github.com/Phygital-Key/phygital-key-mcp) · [Connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md) · [MCP tools](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/tools.md) · [Agents guide](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/agents.md) · [Things to ask](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/examples.md) · [Prompt snippets](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/examples/agent-prompts.md) |
-| **Phygital Key A2A** | [Repository](https://github.com/Phygital-Key/phygital-key-a2a) · [Getting started](https://github.com/Phygital-Key/phygital-key-a2a/blob/main/docs/getting-started.md) · [Connect your agent](https://github.com/Phygital-Key/phygital-key-a2a/blob/main/docs/connect-your-agent.md) · [Protocol](https://github.com/Phygital-Key/phygital-key-a2a/blob/main/docs/protocol.md) · [Extension](https://github.com/Phygital-Key/phygital-key-a2a/blob/main/docs/extension.md) · [Testing](https://github.com/Phygital-Key/phygital-key-a2a/blob/main/docs/testing.md) |
+| **Phygital Key MCP** | [Repository](https://github.com/Phygital-Brain/phygital-key-mcp) · [Connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md) · [MCP tools](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/tools.md) · [Agents guide](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/agents.md) · [Things to ask](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/examples.md) · [Prompt snippets](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/examples/agent-prompts.md) |
+| **Phygital Key A2A** | [Repository](https://github.com/Phygital-Brain/phygital-key-a2a) · [Getting started](https://github.com/Phygital-Brain/phygital-key-a2a/blob/main/docs/getting-started.md) · [Connect your agent](https://github.com/Phygital-Brain/phygital-key-a2a/blob/main/docs/connect-your-agent.md) · [Protocol](https://github.com/Phygital-Brain/phygital-key-a2a/blob/main/docs/protocol.md) · [Extension](https://github.com/Phygital-Brain/phygital-key-a2a/blob/main/docs/extension.md) · [Testing](https://github.com/Phygital-Brain/phygital-key-a2a/blob/main/docs/testing.md) |
 
 ## Privacy
 

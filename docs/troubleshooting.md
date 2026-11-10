@@ -14,7 +14,7 @@ Something already holds the gate's address. (The error number differs between sy
 lsof -nP -iTCP:7468 -sTCP:LISTEN       # macOS, Linux
 ```
 
-Stop the extra one. If several AI apps need the gate, run one gate over HTTP and connect each app to it ([connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md#two-ways-to-connect)). If the program holding the port is not one you know, do not approve anything until you know what it is: it could serve a fake approval page on the same address.
+Stop the extra one. If several AI apps need the gate, run one gate over HTTP and connect each app to it ([connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md#two-ways-to-connect)). If the program holding the port is not one you know, do not approve anything until you know what it is: it could serve a fake approval page on the same address.
 
 The gate holds both `127.0.0.1` and `[::1]` and refuses to start if either is taken. In `stdio` mode, the agent side stops too, so the AI is never handed links to a page another program serves.
 
@@ -164,7 +164,7 @@ Messages the agent gets from the gate, the same in every product:
 | `unknown request` | Wrong id, or the gate restarted |
 | ``No receipt key is pinned for this service, so the receipt cannot be checked. Pin it with `phygital-key trust-service`.`` | Pin it with your product's `trust-service` (the message still names the 0.3 program). See [receipts](receipts.md) |
 
-Messages that only one product's protocol gives (for MCP, tool argument errors) are in that product's docs, for example the [MCP tools reference](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/tools.md).
+Messages that only one product's protocol gives (for MCP, tool argument errors) are in that product's docs, for example the [MCP tools reference](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/tools.md).
 
 ## Standing approvals
 
@@ -238,7 +238,7 @@ The demo prints the token from its data folder. If you started it with another `
 | `only macOS and Linux for now.` | Windows is not supported yet |
 | `the gate is stopped: another program (uid <u>, pid <p>) is listening on port 7468. Stop it, then run this again.` | Find it with `sudo lsof -nP -iTCP:7468 -sTCP:LISTEN`, stop it (often a quick-install gate an AI app started, or a 0.3 secure install: [remove it](secure-install.md#from-a-03-secure-install)), run the install again |
 | `needs openssl to check the release signature. Install openssl, then run this again.` | Install openssl with your system's package manager, then run the install again |
-| `could not download the signed release list for <version>.` | Check the network, and that the version exists on the product's [Releases](https://github.com/Phygital-Key/phygital-key-mcp/releases) page |
+| `could not download the signed release list for <version>.` | Check the network, and that the version exists on the product's [Releases](https://github.com/Phygital-Brain/phygital-key-mcp/releases) page |
 | `the release list for <version> is not signed by a pinned release key. Nothing was installed.` | Do not work around it. Check that you used the pinned `curl` command of the right product, then report it ([SECURITY.md](../SECURITY.md)) |
 | `the signed release list is for <got>, not <version>. Nothing was installed.` | The release files do not belong together. Report it ([SECURITY.md](../SECURITY.md)) |
 | `the download does not match its signed SHA-256. Nothing was installed.` | Try again later; if it repeats, report it ([SECURITY.md](../SECURITY.md)) |
@@ -282,7 +282,7 @@ Other messages in the update log. Those that start with `phygital-key-mcp instal
 
 | Message | What to do |
 |---|---|
-| `phygital-key-mcp: download of https://github.com/Phygital-Key/phygital-key-mcp/releases/latest/download/release.txt failed` | No network, or the product has no signed release yet. Nothing was changed |
+| `phygital-key-mcp: download of https://github.com/Phygital-Brain/phygital-key-mcp/releases/latest/download/release.txt failed` | No network, or the product has no signed release yet. Nothing was changed |
 | `phygital-key-mcp: release list is not signed by a pinned release key` | Nothing was changed. Do not install that release. Report it ([SECURITY.md](../SECURITY.md)) |
 | `phygital-key-mcp: release list refused: <reason>` | The list is not in the exact format. Nothing was changed |
 | `phygital-key-mcp: the download does not match the signed SHA-256. Nothing was changed.` | Try again later; if it repeats, report it |

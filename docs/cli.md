@@ -299,7 +299,7 @@ $ phygital-key-mcp --port 18300 token
   Claude Code:    claude mcp add --transport http phygital-key-mcp http://localhost:18300/mcp --header "Authorization: Bearer ztQPOWlX..."
 ```
 
-(Tokens shortened here.) Both print secrets: run them in your own terminal, never where an AI app can read the output. See [keys and devices](keys-and-devices.md) and, for Phygital Key MCP, [connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
+(Tokens shortened here.) Both print secrets: run them in your own terminal, never where an AI app can read the output. See [keys and devices](keys-and-devices.md) and, for Phygital Key MCP, [connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
 
 ## stdio, serve and demo
 
@@ -396,7 +396,7 @@ It contacts GitHub only when you run it (`curl -q` over HTTPS, TLS 1.2 or later;
 ```text
 $ phygital-key-mcp update --check
 curl: (56) The requested URL returned error: 404
-phygital-key-mcp: download of https://github.com/Phygital-Key/phygital-key-mcp/releases/latest/download/release.txt failed
+phygital-key-mcp: download of https://github.com/Phygital-Brain/phygital-key-mcp/releases/latest/download/release.txt failed
 ```
 
 > [!NOTE]
