@@ -211,7 +211,7 @@ Nothing confirmed by a review is open without a fix or a documented limit. These
 
 ## How to report
 
-Please do not open a public issue. Use [private vulnerability reporting](https://github.com/Phygital-Key/phygital-key/security/advisories/new). A failing test vector is the most helpful report. Details, scope and what to include are in [SECURITY.md](../SECURITY.md).
+Please do not open a public issue. Use [private vulnerability reporting](https://github.com/Phygital-Brain/phygital-key/security/advisories/new). A failing test vector is the most helpful report. Details, scope and what to include are in [SECURITY.md](../SECURITY.md).
 
 ## Next
 

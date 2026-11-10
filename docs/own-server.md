@@ -21,7 +21,7 @@ The names that differ per product:
 | Agent endpoint | `/mcp` | `/a2a` (and the public agent card at `/.well-known/agent-card.json`) |
 | Data folder | `~/.phygital-key-mcp` | `~/.phygital-key-a2a` |
 | Environment | `PHYGITAL_KEY_MCP_ORIGIN`, `_BIND`, `_PORT`, `_HOME` | `PHYGITAL_KEY_A2A_ORIGIN`, `_BIND`, `_PORT`, `_HOME` |
-| Container image | `ghcr.io/phygital-key/phygital-key-mcp` | `ghcr.io/phygital-key/phygital-key-a2a` |
+| Container image | `ghcr.io/phygital-brain/phygital-key-mcp` | `ghcr.io/phygital-brain/phygital-key-a2a` |
 
 ## Why https
 
@@ -73,7 +73,7 @@ docker run -d --name phygital-key-mcp --restart unless-stopped \
   -p 127.0.0.1:7468:7468 \
   -e PHYGITAL_KEY_MCP_ORIGIN=https://approve.example.com \
   -v phygital-key-mcp:/data \
-  ghcr.io/phygital-key/phygital-key-mcp:latest
+  ghcr.io/phygital-brain/phygital-key-mcp:latest
 docker exec -it phygital-key-mcp phygital-key-mcp enroll
 docker exec -it phygital-key-mcp phygital-key-mcp token
 ```
@@ -85,9 +85,9 @@ docker exec -it phygital-key-mcp phygital-key-mcp token
 | `-v phygital-key-mcp:/data` | Keyring, audit log, access token and revocations live in this volume (`PHYGITAL_KEY_MCP_HOME=/data`). Back it up like the data folder below |
 | `:latest` or `:v0.4.0` | Pin a version tag for a server you update on purpose |
 
-Update by pulling the new image and starting a new container on the same volume: `docker pull ghcr.io/phygital-key/phygital-key-mcp:latest`, then `docker rm -f phygital-key-mcp` and the `docker run` line again. The secure install's automatic updates do not apply to containers, and `update` cannot replace the program inside the image.
+Update by pulling the new image and starting a new container on the same volume: `docker pull ghcr.io/phygital-brain/phygital-key-mcp:latest`, then `docker rm -f phygital-key-mcp` and the `docker run` line again. The secure install's automatic updates do not apply to containers, and `update` cannot replace the program inside the image.
 
-Check where an image came from: `gh attestation verify oci://ghcr.io/phygital-key/phygital-key-mcp:v0.4.0 --repo Phygital-Key/phygital-key-mcp`.
+Check where an image came from: `gh attestation verify oci://ghcr.io/phygital-brain/phygital-key-mcp:v0.4.0 --repo Phygital-Brain/phygital-key-mcp`.
 
 > [!WARNING]
 > On your own computer, a container does not keep the gate out of the AI's reach: if your user can run `docker`, so can an agent acting as you, and Docker access is as strong as administrator access. On a desktop, use the [secure install](secure-install.md). The container is for servers where AI agents do not run.
@@ -141,7 +141,7 @@ A keyring belongs to one address. Keys made on `localhost` do not work on `appro
 
 ## Connect AI apps
 
-AI apps and agents connect to the agent endpoint (`https://approve.example.com/mcp` for Phygital Key MCP, `/a2a` for Phygital Key A2A) with the header `Authorization: Bearer <token>`. For MCP apps, see the [HTTP setup](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md#http-the-app-connects-to-a-url). Anyone with the token can create requests, never approve them. Keep it in the apps' settings only, and [rotate it](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md#rotate-the-token) if it leaks. `--no-token` (no token) is a bad idea on a public address: anyone on the internet could flood you with requests.
+AI apps and agents connect to the agent endpoint (`https://approve.example.com/mcp` for Phygital Key MCP, `/a2a` for Phygital Key A2A) with the header `Authorization: Bearer <token>`. For MCP apps, see the [HTTP setup](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md#http-the-app-connects-to-a-url). Anyone with the token can create requests, never approve them. Keep it in the apps' settings only, and [rotate it](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md#rotate-the-token) if it leaks. `--no-token` (no token) is a bad idea on a public address: anyone on the internet could flood you with requests.
 
 The gate rate-limits requests: 30 new per minute, 50 waiting at once, 5000 held in memory. Over the limit, the agent gets `Too many requests right now. Try again shortly.` or `Too many requests are waiting. Wait for the person to decide.` The MCP product's end-to-end tests check that the 31st request in a minute is refused and that the gate still answers afterwards.
 
@@ -213,6 +213,6 @@ Restore the **newest** copy of `keyring.json`. A service that keeps the copy it 
 ## Next
 
 - [Keys and devices](keys-and-devices.md)
-- [Connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md) (Phygital Key MCP)
+- [Connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md) (Phygital Key MCP)
 - [Privacy](privacy.md)
 - [Troubleshooting](troubleshooting.md#own-server)

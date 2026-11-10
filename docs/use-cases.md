@@ -321,7 +321,7 @@ The `sha256` is the hash of the agreed PDF, so the request stays small and the d
 
 ## Next
 
-- [Things to ask your AI](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/examples.md) (Phygital Key MCP)
+- [Things to ask your AI](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/examples.md) (Phygital Key MCP)
 - [Check approvals in your service](integrate.md)
 - [Runnable examples](../examples/README.md)
 - [Roadmap](roadmap.md)

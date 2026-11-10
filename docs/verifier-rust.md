@@ -24,7 +24,7 @@ Add the crate from the base repository as a git dependency. Pin a commit (`rev`)
 
 ```toml
 [dependencies]
-phygital-key-verify = { git = "https://github.com/Phygital-Key/phygital-key", rev = "<commit>" }
+phygital-key-verify = { git = "https://github.com/Phygital-Brain/phygital-key", rev = "<commit>" }
 serde_json = "1"
 ```
 

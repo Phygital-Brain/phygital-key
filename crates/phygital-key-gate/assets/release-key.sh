@@ -19,12 +19,12 @@
 # From then on, only releases signed by those keys install or update.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-# Generated for one product from the template in Phygital-Key/phygital-key.
+# Generated for one product from the template in Phygital-Brain/phygital-key.
 # BEGIN PRODUCT
 P_NAME="Phygital Key"
 P_BIN=phygital-key
 P_ID=dev
-P_REPO=Phygital-Key/phygital-key
+P_REPO=Phygital-Brain/phygital-key
 P_PORT=7468
 P_VERSION=v0.0.0
 # END PRODUCT

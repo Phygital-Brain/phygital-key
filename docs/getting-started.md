@@ -13,8 +13,8 @@ Every product is the same gate (the approval page, your keys, standing approvals
 
 | Your AI | Product | Program |
 |---|---|---|
-| An AI app that speaks MCP: Claude Code, Claude Desktop and other MCP clients | [Phygital Key MCP](https://github.com/Phygital-Key/phygital-key-mcp) | `phygital-key-mcp` |
-| An agent that speaks A2A 1.0 (JSON-RPC, agent cards) | [Phygital Key A2A](https://github.com/Phygital-Key/phygital-key-a2a), new and still being built | `phygital-key-a2a` |
+| An AI app that speaks MCP: Claude Code, Claude Desktop and other MCP clients | [Phygital Key MCP](https://github.com/Phygital-Brain/phygital-key-mcp) | `phygital-key-mcp` |
+| An agent that speaks A2A 1.0 (JSON-RPC, agent cards) | [Phygital Key A2A](https://github.com/Phygital-Brain/phygital-key-a2a), new and still being built | `phygital-key-a2a` |
 
 If you only check approvals in a service, you need no product at all: go to [check approvals in a service](#check-approvals-in-a-service).
 
@@ -31,12 +31,12 @@ Install the program (pick one):
 
 | Where | Command |
 |---|---|
-| macOS, Linux (Homebrew) | `brew install phygital-key/tap/phygital-key-mcp` |
-| macOS, Linux (script) | `curl -fsSL https://github.com/Phygital-Key/phygital-key-mcp/releases/latest/download/install.sh \| sh` |
-| Windows (Scoop) | `scoop bucket add phygital-key-mcp https://github.com/Phygital-Key/phygital-key-mcp` then `scoop install phygital-key-mcp` |
-| Anywhere with Rust | `cargo install --locked --git https://github.com/Phygital-Key/phygital-key-mcp phygital-key-mcp` |
-| Linux server (Docker) | `docker run -d --name phygital-key-mcp -p 127.0.0.1:7468:7468 -v phygital-key-mcp:/data ghcr.io/phygital-key/phygital-key-mcp:latest` ([run it in a container](own-server.md#run-it-in-a-container)) |
-| By hand | Download from [Releases](https://github.com/Phygital-Key/phygital-key-mcp/releases). Each release has a signed list of SHA-256 sums, `release.txt` ([how to check it](updates.md#check-a-download-yourself)). |
+| macOS, Linux (Homebrew) | `brew install phygital-brain/tap/phygital-key-mcp` |
+| macOS, Linux (script) | `curl -fsSL https://github.com/Phygital-Brain/phygital-key-mcp/releases/latest/download/install.sh \| sh` |
+| Windows (Scoop) | `scoop bucket add phygital-key-mcp https://github.com/Phygital-Brain/phygital-key-mcp` then `scoop install phygital-key-mcp` |
+| Anywhere with Rust | `cargo install --locked --git https://github.com/Phygital-Brain/phygital-key-mcp phygital-key-mcp` |
+| Linux server (Docker) | `docker run -d --name phygital-key-mcp -p 127.0.0.1:7468:7468 -v phygital-key-mcp:/data ghcr.io/phygital-brain/phygital-key-mcp:latest` ([run it in a container](own-server.md#run-it-in-a-container)) |
+| By hand | Download from [Releases](https://github.com/Phygital-Brain/phygital-key-mcp/releases). Each release has a signed list of SHA-256 sums, `release.txt` ([how to check it](updates.md#check-a-download-yourself)). |
 
 The script downloads the latest release list (`release.txt`), checks that it is signed by a release key pinned in the script, downloads the archive for your machine, compares its SHA-256 with the signed list and writes one file, `~/.local/bin/phygital-key-mcp`. Nothing else is touched. It needs `curl`, `tar` and `openssl`. Later, `phygital-key-mcp update` installs newer signed releases ([updates](updates.md)).
 
@@ -77,7 +77,7 @@ The demo runs the gate and a fake service on your computer. The fake service dep
 
 2. **Add your key.** Open the enrollment link, type a name (for example `My laptop`) and press **Add key**. Your browser asks for Touch ID, Windows Hello, your phone or a security key. The page then shows **Confirm your key**: press **Approve with my key** once more. This first signature proves the key works and starts your [signed key history](keys-and-devices.md#the-signed-key-history).
 
-3. **Connect an AI app.** Paste the `Claude Code:` line the demo printed into a terminal, or put the endpoint and header into any other app ([connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md) shows each shape).
+3. **Connect an AI app.** Paste the `Claude Code:` line the demo printed into a terminal, or put the endpoint and header into any other app ([connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md) shows each shape).
 
 4. **Ask for something.** In the AI app, ask:
 
@@ -106,7 +106,7 @@ There are two ways to run the gate for real use. In both, the AI can ask, wait, 
 | Updates | You run `phygital-key-mcp update`, `brew upgrade` or `scoop update` | By itself, daily, signed releases only (can be turned off) |
 | Good for | Trying it, low-stakes work | Anything that matters |
 
-On a Linux server you can also run the gate from the container image `ghcr.io/phygital-key/phygital-key-mcp`: it runs as `serve` inside it, keeps its data in a volume, and you add a key with `docker exec -it phygital-key-mcp phygital-key-mcp enroll`. It updates when you pull a new image. On your own computer it does not keep the gate out of the AI's reach, because an agent acting as you can run `docker` too, so use the secure install there. Setup, the TLS proxy and updates: [run it in a container](own-server.md#run-it-in-a-container).
+On a Linux server you can also run the gate from the container image `ghcr.io/phygital-brain/phygital-key-mcp`: it runs as `serve` inside it, keeps its data in a volume, and you add a key with `docker exec -it phygital-key-mcp phygital-key-mcp enroll`. It updates when you pull a new image. On your own computer it does not keep the gate out of the AI's reach, because an agent acting as you can run `docker` too, so use the secure install there. Setup, the TLS proxy and updates: [run it in a container](own-server.md#run-it-in-a-container).
 
 ### Quick install
 
@@ -117,7 +117,7 @@ On a Linux server you can also run the gate from the container image `ghcr.io/ph
    claude mcp add phygital-key-mcp -- phygital-key-mcp stdio
    ```
 
-   Other apps take the same command in their MCP settings: command `phygital-key-mcp`, argument `stdio`. See [connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
+   Other apps take the same command in their MCP settings: command `phygital-key-mcp`, argument `stdio`. See [connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md).
 3. Start the AI app once, so it starts the gate. The gate's approval page then runs at `http://localhost:7468` for as long as the app keeps it running.
 4. In your own terminal, add your key:
 
@@ -126,7 +126,7 @@ On a Linux server you can also run the gate from the container image `ghcr.io/ph
    ```
 
    Open the link it prints (it works once, for 10 minutes), press **Add key**, then confirm with the same key.
-5. Check it works: ask the AI to call `request_approval` for a harmless `send_message` ([the exact test](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md#check-that-it-works)).
+5. Check it works: ask the AI to call `request_approval` for a harmless `send_message` ([the exact test](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md#check-that-it-works)).
 
 > [!WARNING]
 > With the quick install, the gate's files live in your own home folder. An AI that can run shell commands as you could edit them. Use the secure install for anything real.
@@ -136,7 +136,7 @@ On a Linux server you can also run the gate from the container image `ghcr.io/ph
 From a fresh terminal that no AI controls (macOS or Linux):
 
 ```bash
-curl -q -fsSL https://raw.githubusercontent.com/Phygital-Key/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash
+curl -q -fsSL https://raw.githubusercontent.com/Phygital-Brain/phygital-key-mcp/v0.6.0/install-service.sh | sudo bash
 ```
 
 It downloads the official v0.4.0 release, checks that its file list is signed by a pinned release key and that the archive matches the signed SHA-256, installs it where only an administrator can change it, and starts it as its own user. From then on it updates itself once a day to newer signed releases ([updates](updates.md#automatic-updates-secure-install); add `-s -- --no-auto-update` after `sudo bash` to turn that off). Then:
@@ -147,7 +147,7 @@ phygital-key-mcp-admin token       # the line to paste into your AI app
 phygital-key-mcp-admin status      # check that only the gate listens on its port
 ```
 
-Each command asks for your administrator password. Paste the line from `token` into your AI app ([HTTP setup](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md#http-the-app-connects-to-a-url)). Everything the install creates, checks and refuses is on [secure install](secure-install.md).
+Each command asks for your administrator password. Paste the line from `token` into your AI app ([HTTP setup](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md#http-the-app-connects-to-a-url)). Everything the install creates, checks and refuses is on [secure install](secure-install.md).
 
 ### Habits that keep you safe
 
@@ -174,7 +174,7 @@ It prints `{"approved_by":"My laptop","exp":...,"id":...,"level":"high","ok":tru
 
 ## Next
 
-- [Connect your AI app](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/connect-your-ai.md) (Phygital Key MCP): exact settings for stdio and HTTP
+- [Connect your AI app](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/connect-your-ai.md) (Phygital Key MCP): exact settings for stdio and HTTP
 - [Approving](approving.md): read the approval page line by line
 - [Secure install](secure-install.md): put the gate out of the AI's reach
 - [Troubleshooting](troubleshooting.md): exact messages and what to do

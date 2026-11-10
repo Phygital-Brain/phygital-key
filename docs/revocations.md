@@ -188,7 +188,7 @@ Entries after the first 1000 in one list are not read. A gate has one entry per 
 | `revocation_of_other_standing` | ok | A revocation of another standing approval changes nothing here. |
 | `revoked_among_others` | `REVOKED` | One valid revocation among junk still counts. |
 
-The [end-to-end suite](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/tests/e2e/run.mjs) of Phygital Key MCP (real browser and virtual passkey) runs the whole path on a live gate: after a revoke the gate signs no new uses, a use token handed out before the revoke still works at the demo service until the revocation is signed (the window above), the signed revocation is published, and from then on the service refuses the standing approval.
+The [end-to-end suite](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/tests/e2e/run.mjs) of Phygital Key MCP (real browser and virtual passkey) runs the whole path on a live gate: after a revoke the gate signs no new uses, a use token handed out before the revoke still works at the demo service until the revocation is signed (the window above), the signed revocation is published, and from then on the service refuses the standing approval.
 
 ## Next
 

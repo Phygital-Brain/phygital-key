@@ -13,7 +13,7 @@ Pre-audit, like the rest of the project.
 Not published to npm yet. Install from a clone:
 
 ```bash
-git clone https://github.com/Phygital-Key/phygital-key
+git clone https://github.com/Phygital-Brain/phygital-key
 npm install ./phygital-key/verifier-js
 ```
 

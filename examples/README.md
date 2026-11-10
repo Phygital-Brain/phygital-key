@@ -16,7 +16,7 @@ Every example needs a gate with at least one key. Any product works; with Phygit
 phygital-key-mcp demo
 ```
 
-It serves the approval page on `http://localhost:7468`, prints a one-time link to add your passkey or security key, and runs its own fake service on port 7469. The keyring the examples trust is `~/.phygital-key-mcp/keyring.json`. To get approvals, connect an AI app to the gate (`phygital-key-mcp token` prints how) and ask it; see [things to ask your AI](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/examples.md). Prompts for AI agents are in Phygital Key MCP: [agent prompts](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/examples/agent-prompts.md).
+It serves the approval page on `http://localhost:7468`, prints a one-time link to add your passkey or security key, and runs its own fake service on port 7469. The keyring the examples trust is `~/.phygital-key-mcp/keyring.json`. To get approvals, connect an AI app to the gate (`phygital-key-mcp token` prints how) and ask it; see [things to ask your AI](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/examples.md). Prompts for AI agents are in Phygital Key MCP: [agent prompts](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/examples/agent-prompts.md).
 
 The Node and Rust examples take the gate's origin from `GATE_ORIGIN` (default `http://localhost:7468`); the CI workflow sets it in its `env` block. Each example uses its own audience. An approval works only for the audience it names, so ask for the one the example prints.
 

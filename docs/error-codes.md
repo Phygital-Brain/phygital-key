@@ -241,6 +241,6 @@ Details and the gate's own messages: [receipts](receipts.md#failure-cases).
 ## Next
 
 - [Integrate](integrate.md#what-to-log-and-what-to-answer)
-- [Agents guide](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/agents.md) (Phygital Key MCP)
+- [Agents guide](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/agents.md) (Phygital Key MCP)
 - [Troubleshooting](troubleshooting.md)
 - [Spec, section 7](spec.md)

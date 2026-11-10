@@ -1,7 +1,7 @@
 #!/bin/sh
 # shellcheck disable=SC2034 # every script carries the whole PRODUCT block; not all use every value
 # Install a Phygital Key product on macOS or Linux (the PRODUCT block below says
-# which). Generated from the template in Phygital-Key/phygital-key.
+# which). Generated from the template in Phygital-Brain/phygital-key.
 #
 #   curl -fsSL https://github.com/<product repo>/releases/latest/download/install.sh | sh
 #
@@ -14,7 +14,7 @@ set -eu
 P_NAME="Phygital Key"
 P_BIN=phygital-key
 P_ID=dev
-P_REPO=Phygital-Key/phygital-key
+P_REPO=Phygital-Brain/phygital-key
 P_PORT=7468
 P_VERSION=v0.0.0
 # END PRODUCT

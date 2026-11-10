@@ -2,7 +2,7 @@
 
 Thanks for helping. Phygital Key is free and open source under the [Apache-2.0](LICENSE) licence. Bug reports, fixes, test vectors and clearer docs are all welcome. Small, focused pull requests are the easiest to review.
 
-This repository is the shared base: the verifiers, the gate engine, the spec, the test vectors and the shared docs. Changes to how one product talks to agents (for example the MCP tools) go to that product's repository: [phygital-key-mcp](https://github.com/Phygital-Key/phygital-key-mcp) or [phygital-key-a2a](https://github.com/Phygital-Key/phygital-key-a2a). Everything the products share is changed here, never in a product.
+This repository is the shared base: the verifiers, the gate engine, the spec, the test vectors and the shared docs. Changes to how one product talks to agents (for example the MCP tools) go to that product's repository: [phygital-key-mcp](https://github.com/Phygital-Brain/phygital-key-mcp) or [phygital-key-a2a](https://github.com/Phygital-Brain/phygital-key-a2a). Everything the products share is changed here, never in a product.
 
 ## Reporting a problem
 
@@ -35,7 +35,7 @@ Read [AGENTS.md](AGENTS.md) for how the code is laid out.
 You need Rust (stable, at least 1.89; the workspace uses edition 2024) and Node 20 or newer for the JavaScript checker. Fuzzing needs nightly Rust.
 
 ```bash
-git clone https://github.com/Phygital-Key/phygital-key
+git clone https://github.com/Phygital-Brain/phygital-key
 cd phygital-key
 cargo build --workspace
 ```

@@ -2,7 +2,7 @@
 
 Phygital Key lets a person approve exact AI actions with a passkey or hardware key, and lets any service check that approval. A flaw here could let an action run without the person's yes, so reports are welcome.
 
-This policy covers the base (this repository: the verifiers, the gate engine, the spec, the test vectors and the installer templates) and the products built on it, [Phygital Key MCP](https://github.com/Phygital-Key/phygital-key-mcp) and [Phygital Key A2A](https://github.com/Phygital-Key/phygital-key-a2a). Most of the code that guards an approval lives here, so report here unless the problem is only in one product's agent protocol.
+This policy covers the base (this repository: the verifiers, the gate engine, the spec, the test vectors and the installer templates) and the products built on it, [Phygital Key MCP](https://github.com/Phygital-Brain/phygital-key-mcp) and [Phygital Key A2A](https://github.com/Phygital-Brain/phygital-key-a2a). Most of the code that guards an approval lives here, so report here unless the problem is only in one product's agent protocol.
 
 Phygital Key is **pre-audit**: nine internal reviews by AI security-auditor agents and one round of outside test suites, every finding fixed or documented as a limit, and no paid third-party audit yet. See [docs/security-reviews.md](docs/security-reviews.md).
 
@@ -24,16 +24,16 @@ How fixes reach you, for Phygital Key MCP (Phygital Key A2A uses the same comman
 | `install.sh` or `cargo install` | `phygital-key-mcp update` (checks the same signature) |
 | Homebrew | `brew upgrade phygital-key-mcp` |
 | Scoop (Windows) | `scoop update phygital-key-mcp` |
-| Container (`ghcr.io/phygital-key/phygital-key-mcp`) | Pull the new image (`docker pull ghcr.io/phygital-key/phygital-key-mcp:latest`, or the new `vX.Y.Z` tag) and start a new container on the same volume. Nothing inside the container updates it ([how](docs/own-server.md#run-it-in-a-container)). |
+| Container (`ghcr.io/phygital-brain/phygital-key-mcp`) | Pull the new image (`docker pull ghcr.io/phygital-brain/phygital-key-mcp:latest`, or the new `vX.Y.Z` tag) and start a new container on the same volume. Nothing inside the container updates it ([how](docs/own-server.md#run-it-in-a-container)). |
 
 ### How a release is signed
 
 Each product signs its own releases, in its own repository, with its own key. The base makes no releases.
 
-1. The repository owner pushes a tag `vX.Y.Z` in the product's repository. A repository ruleset lets only repository admins create, update or delete `v*` tags. CI runs the tests, builds every archive and publishes a build record for each (a build provenance attestation: which workflow built which file from which commit). Anyone can check one with `gh attestation verify <file> --repo Phygital-Key/phygital-key-mcp`.
+1. The repository owner pushes a tag `vX.Y.Z` in the product's repository. A repository ruleset lets only repository admins create, update or delete `v*` tags. CI runs the tests, builds every archive and publishes a build record for each (a build provenance attestation: which workflow built which file from which commit). Anyone can check one with `gh attestation verify <file> --repo Phygital-Brain/phygital-key-mcp`.
 2. The `publish` job gets the release key, the secret `RELEASE_SIGNING_KEY` of that repository's environment `release`, which only runs from `v*` tags can use. For now the environment needs no approval, so the job does not wait for the owner: the tag push alone starts signing. The owner plans to turn the approval back on as the project grows.
 3. The job computes every SHA-256 itself, signs `release.txt`, checks the signature against the keys pinned in that commit, and publishes the release with `release.txt` and `release.txt.sig`.
-4. After that, the `container` job builds the container image from the two Linux archives of the same release, pushes it as `vX.Y.Z` and `latest`, and publishes a build provenance attestation for it: `gh attestation verify oci://ghcr.io/phygital-key/phygital-key-mcp:vX.Y.Z --repo Phygital-Key/phygital-key-mcp`. The image itself is not in `release.txt` and is not signed with the release key.
+4. After that, the `container` job builds the container image from the two Linux archives of the same release, pushes it as `vX.Y.Z` and `latest`, and publishes a build provenance attestation for it: `gh attestation verify oci://ghcr.io/phygital-brain/phygital-key-mcp:vX.Y.Z --repo Phygital-Brain/phygital-key-mcp`. The image itself is not in `release.txt` and is not signed with the release key.
 
 The release key exists only as that GitHub secret: no copy on any computer, no passphrase. So a swapped file, a mirror, a stolen workflow token or a pull request cannot make an update that installs. You can turn automatic updates off. See [docs/updates.md](docs/updates.md), and [the update channel](docs/threat-model.md#the-update-channel) for what the signature protects and what it does not.
 
@@ -41,7 +41,7 @@ The release key exists only as that GitHub secret: no copy on any computer, no p
 
 Please do not open a public issue, discussion or pull request for a security problem.
 
-1. Open [private vulnerability reporting](https://github.com/Phygital-Key/phygital-key/security/advisories/new) (the **Security** tab, then **Report a vulnerability**). Only the maintainer sees it.
+1. Open [private vulnerability reporting](https://github.com/Phygital-Brain/phygital-key/security/advisories/new) (the **Security** tab, then **Report a vulnerability**). Only the maintainer sees it.
 2. Include what is listed below.
 
 There is no email contact. Use private reporting.

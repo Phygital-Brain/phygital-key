@@ -3,18 +3,18 @@
 Notes for AI coding agents (Claude Code, Codex, Cursor, Copilot and others) and human contributors who change this repository, the Phygital Key base. Read this before you change code, tests or docs.
 
 > [!NOTE]
-> If you are an AI agent **using** Phygital Key (asking a person to approve an action, not editing this code), read the guide of the product you are connected to: for Phygital Key MCP, its [agents guide](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/agents.md) and [MCP tools reference](https://github.com/Phygital-Key/phygital-key-mcp/blob/main/docs/tools.md). The short version: you can ask, you can never approve; send the exact approved request; on `denied`, `expired` or `cancelled`, do not act.
+> If you are an AI agent **using** Phygital Key (asking a person to approve an action, not editing this code), read the guide of the product you are connected to: for Phygital Key MCP, its [agents guide](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/agents.md) and [MCP tools reference](https://github.com/Phygital-Brain/phygital-key-mcp/blob/main/docs/tools.md). The short version: you can ask, you can never approve; send the exact approved request; on `denied`, `expired` or `cancelled`, do not act.
 
 ## What this is
 
 Phygital Key gives a person's signed yes, for one exact request, that anyone can check. The person approves with a passkey or hardware key (WebAuthn, ES256 over P-256); the service that acts verifies the approval itself, offline, before it does anything. Approvals are signed and verified, not encrypted.
 
-This repository (`Phygital-Key/phygital-key`, renamed from `phygital-key-mcp`) is the **base**: everything the products share. It publishes no programs and no releases. The products are separate repositories that build on it:
+This repository (`Phygital-Brain/phygital-key`, renamed from `phygital-key-mcp`) is the **base**: everything the products share. It publishes no programs and no releases. The products are separate repositories that build on it:
 
 | Product | Repository | Program | Agent protocol |
 |---|---|---|---|
-| Phygital Key MCP | [Phygital-Key/phygital-key-mcp](https://github.com/Phygital-Key/phygital-key-mcp) | `phygital-key-mcp` (0.6.0) | MCP over stdio, or Streamable HTTP at `/mcp` |
-| Phygital Key A2A | [Phygital-Key/phygital-key-a2a](https://github.com/Phygital-Key/phygital-key-a2a) (new) | `phygital-key-a2a` | A2A 1.0 JSON-RPC at `/a2a`, agent card at `/.well-known/agent-card.json` |
+| Phygital Key MCP | [Phygital-Brain/phygital-key-mcp](https://github.com/Phygital-Brain/phygital-key-mcp) | `phygital-key-mcp` (0.6.0) | MCP over stdio, or Streamable HTTP at `/mcp` |
+| Phygital Key A2A | [Phygital-Brain/phygital-key-a2a](https://github.com/Phygital-Brain/phygital-key-a2a) (new) | `phygital-key-a2a` | A2A 1.0 JSON-RPC at `/a2a`, agent card at `/.well-known/agent-card.json` |
 
 Four parts live here, all Apache-2.0:
 
